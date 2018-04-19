@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apollo: Apollo) { }
 
   ngOnInit() {
+    const query = gql`query {
+      user:currentUser {
+        id
+      }
+    }
+    `;
+    this.apollo.query<{ user: any }>({ query: query }).subscribe((data) => {
+      console.log(data);
+    });
   }
 
 }
