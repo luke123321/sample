@@ -1,0 +1,18 @@
+<ng-container *ngIf="type">
+    <div class="admin-form-item" [ngSwitch]="type">
+        <ng-template [ngSwitchCase]="'text'">
+            <div class="input-text">
+                <label>test</label>
+                <input type="text" placeholder="Username">
+            </div>
+        </ng-template>
+        <ng-template [ngSwitchCase]="'submit'">
+            <div class=" text-right submit-group">
+                <button type="button" class="btn">Primary</button>
+            </div>
+        </ng-template>
+        <ng-template ngSwitchDefault>
+
+        </ng-template>
+    </div>
+</ng-container>

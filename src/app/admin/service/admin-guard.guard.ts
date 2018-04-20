@@ -12,7 +12,13 @@ export class AdminGuardGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    return true;
+    return this.getCurrentUser().then(data => {
+      if (data) {
+        return true;
+      } else {
+        location.href = '/login';
+      }
+    });
   }
 
   getCurrentUser() {
@@ -25,12 +31,11 @@ export class AdminGuardGuard implements CanActivate {
       `;
     let promise = new Promise<boolean>((resolve, reject) => {
       this.apollo.query<{ user: any }>({ query: query, fetchPolicy: "network-only" }).subscribe((data) => {
-        console.log(data);
-        // if (data && data.data && data.data.user && data.data.user.id) {
-        //   resolve(true);
-        // } else {
-        //   resolve(false);
-        // }
+        if (data && data.data && data.data.user && data.data.user.id) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
       });
     });
     return promise;

@@ -1,0 +1,19 @@
+<div class="tool-bar-container">
+
+    <div class="tool-box">
+        <div class="user-box">
+            <span (click)="toggle()" [class.list-active]="flag">
+                <i class="fa fa-user"></i>
+            </span>
+            <span [style.width.px]="flag ? 130 : 0 ">
+                <i class="fa fa-asterisk">
+                    <a href="javascript:void(0);" routerLink="test">修改</a>
+                </i>
+                <i class="fa fa-sign-out">
+                    <a href="javascript:void(0);" routerLink="test">退出</a>
+                </i>
+            </span>
+        </div>
+    </div>
+
+</div>

@@ -12,10 +12,10 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private apollo: Apollo) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  login(username: String, password: String) {
+  login(username: String, password: String, form: any) {
+
     const query = gql`query ($username: String!, $password: String!) {
       loginInfo:login(username: $username, password: $password) {
         id
@@ -23,16 +23,18 @@ export class LoginComponent implements OnInit {
       }
     }
     `;
-    const variables = { username: username, password: password };
-    this.apollo.query<{ loginInfo: any }>({ query: query, variables: variables, fetchPolicy: "network-only" }).subscribe((data) => {
 
+    const variables = { username: username, password: password };
+
+    this.apollo.query<{ loginInfo: any }>({ query: query, variables: variables, fetchPolicy: "network-only" }).subscribe((data) => {
       if (data && data.data && data.data.loginInfo && data.data.loginInfo.id) {
-        alert(data.data.loginInfo.id);
         location.href = '/admin';
       } else {
-        location.href = '/login';
+        alert('密码错误！');
+        form.reset();
       }
     });
+
   }
 
 }

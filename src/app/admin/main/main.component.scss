@@ -1,0 +1,15 @@
+.admin-container {
+    background-color: #eee;
+    .nav-avtive {
+        margin-left: 260px;
+    }
+    .main-content {
+        transition: margin 1s ease;
+        .container {
+            .content-col {
+                padding-top: 80px;
+                overflow: hidden;
+            }
+        }
+    }
+}

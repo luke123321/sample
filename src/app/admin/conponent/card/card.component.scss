@@ -1,0 +1,22 @@
+.admin-card {
+    .admin-card-header {
+        margin: -20px 15px 0;
+        background-color: #9c27b0;
+        color: #fff;
+        border-radius: 3px;
+        h4 {
+            margin: 0 0 5px 0;
+        }
+        p {
+            font-size: 15px;
+            margin: 0;
+            text-indent: 5px;
+            color: rgba(255, 255, 255, 0.62);
+            line-height: 25px;
+        }
+    }
+    .admin-card-body {
+        color: #AAAAAA;
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,25 @@
+.admin-form-item {
+    .submit-group {
+        border: none;
+        background-color: #fff;
+        height: auto;
+        font-size: 0;
+        button {
+            color: #fff;
+            background-color: #9c27b0;
+            margin-right: 15px;
+            &:hover {
+                box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2);
+            }
+        }
+    }
+    .input-text {
+        margin-bottom: 15px;
+        input {
+            width: 100%;
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #eee;
+        }
+    }
+}

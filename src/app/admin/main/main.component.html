@@ -1,3 +1,17 @@
-<p>
-  main works!
-</p>
+<div class="admin-container">
+
+  <!-- 左侧滑动导航 -->
+  <aside class="app-main-nav" (onClick)="toggle($event)"></aside>
+
+  <div class="main-content" [style.marginLeft.px]="navFlag ? 260 : 0">
+    <div class="app-main-tool-bar"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col content-col">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
