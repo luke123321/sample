@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { FormControl, FormControlName } from '@angular/forms';
 @Component({
     selector: '.app-main-form-item',
     templateUrl: './form-item.component.html',
@@ -7,10 +7,29 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FormItemComponent implements OnInit {
 
-    @Input() type: String;
+    @Input() itemType: String = '';
+
+    @Input() itemName: String = '';
 
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { console.log('item'); }
+
+
+    onFocus(info: any) {
+        if (info && info.path && info.path[1]) {
+            if (!info.path[1].classList.contains('active-text')) {
+                info.path[1].classList.add('active-text');
+            }
+        }
+    }
+
+    onBlur(info: any) {
+        if (info && info.path && info.path[0] && info.path[1]) {
+            if (!info.path[0].value && info.path[1].classList.contains('active-text')) {
+                info.path[1].classList.remove('active-text');
+            }
+        }
+    }
 
 }

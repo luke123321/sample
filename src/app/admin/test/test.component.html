@@ -1,6 +1,6 @@
 <app-main-card title="form" brief="sample form">
-    <app-main-form>
-        <div class="app-main-form-item" type="text"></div>
-        <div class="app-main-form-item" type="submit"></div>
+    <app-main-form [adminForm]="adminForm">
+        <div class="app-main-form-item" itemName="name" itemType="text"></div>
+        <div class="app-main-form-item" itemType="submit"></div>
     </app-main-form>
 </app-main-card>

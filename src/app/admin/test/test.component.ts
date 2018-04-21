@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-main-test',
@@ -7,8 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
+    adminForm: FormGroup;
+    
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.adminForm = new FormGroup({
+            'name': new FormControl('', [Validators.required])
+        });
+    }
 
 }
